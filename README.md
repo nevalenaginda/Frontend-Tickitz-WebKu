@@ -1,4 +1,4 @@
-# Beginner Frontend Week 5
+# Intermediate Frontend Tickitz Webku
 ### Informasi
 
 File ini merupakan contoh pembuatan frontend web tiket sederhana yang dibangun menggunakan React Js. Frontend web ini  dapat melakukan create, read, update, dan delete data dari suatu API tiket film yang dibuat pada postingan sebelumnya.
@@ -47,4 +47,4 @@ Kemudian ketikan text berikut untuk menjalankan
 ```
 
 Untuk project beginner backend tiket film dapat dilihat <a href="https://github.com/nevalenaginda/Beginner-Backend-Tickitz-WebKu/tree/master">disini</a> 
-# Intermediate Frontend Tickitz Webku
+

@@ -1,0 +1,72 @@
+.card-all-movie {
+  width: 250px;
+  height: 450px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-all-movie {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container-all-movie .card {
+  display: inline-block;
+  width: 250px;
+  height: 450px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 8px 32px rgba(186, 186, 186, 0.24);
+  border: 0;
+  margin-right: 16px;
+}
+
+.container-all-movie .card img {
+  width: 180px;
+  height: 250px;
+}
+
+.container-all-movie .card p {
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #14142b;
+  letter-spacing: 0.15px;
+  text-align: center;
+}
+
+.container-all-movie .card span {
+  margin-top: -10px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #a0a3bd;
+  letter-spacing: 0.4px;
+  text-align: center;
+}
+
+.container-all-movie .card .btn-details {
+  width: 159px;
+  height: 33px;
+  border-radius: 4px;
+  color: #5f2eea;
+  background-color: #fff;
+  border: 1px solid #5f2eea;
+  font-size: 14px;
+  font-weight: 400;
+  transition: 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.container-all-movie .card .btn-details:hover {
+  color: #fff;
+  background-color: #5f2eea;
+  border: 1px solid transparent;
+}

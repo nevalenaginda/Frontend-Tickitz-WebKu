@@ -1,0 +1,45 @@
+
+.banner {
+  background-image: url(../../../../assets/img/banner_img.png);
+  background-size: cover;
+  position: relative;
+}
+
+.bg-banner {
+  /* display: block; */
+  background-color: rgba(43, 21, 107, 0.8);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-top: 25%;
+  z-index: 1;
+}
+
+.logo-desktop-sign-in {
+  width: 25vw;
+  height: auto;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%) 
+}
+
+.centering-asside-content{
+  /* position: relative ;  */
+  height:100vh; 
+  width:100%; 
+
+}
+.centering-asside-p{
+  font-size: 5.5vw;
+  margin: 0;
+  position: absolute;
+  top: 56%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%) 
+}

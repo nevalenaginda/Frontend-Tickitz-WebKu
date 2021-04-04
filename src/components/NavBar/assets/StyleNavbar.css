@@ -1,0 +1,46 @@
+/* Navbar */
+.border-color-1 {
+  border: 1px solid #dedede;
+}
+.select-city {
+  border-color: white;
+}
+.select-nav-position {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar-brand img {
+  width: 130px !important;
+  height: auto;
+}
+
+.navbar-position {
+  /* position: fixed !important; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  /* width: 100%; */
+  z-index: 1;
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar-brand img {
+    width: 100px !important;
+    height: auto;
+  }
+}
+
+.button-navbar {
+  width: 120px;
+  background-color: #5f2eea !important;
+  border-color: #5f2eea !important;
+  border-radius: 4px !important;
+}
+
+.button-search {
+  border-color: white !important;
+}
+
+.profil-user-navbar {
+  width: 40px;
+  clip-path: circle();
+}

@@ -1,0 +1,18 @@
+.custom-select-admin {
+  background-image: url(./img/location.png) !important;
+  background-repeat: no-repeat;
+  background-size: 20px !important;
+  /* background-position-x: 94%; */
+  /* background-position-y: center; */
+}
+.btn-admin-no-outline {
+  border: 1px solid #5f2eea;
+  box-sizing: border-box;
+  border-radius: 4px;
+  color: #5f2eea;
+}
+
+.btn-admin-no-outline:hover {
+  color: #ffff;
+  background-color: #5f2eea;
+}

@@ -1,0 +1,173 @@
+/* footer */
+footer .logo {
+  width: 183px;
+  height: 71px;
+  margin-bottom: 16px;
+}
+
+footer p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  letter-spacing: 0.75px;
+  color: #6e7191;
+  white-space: nowrap;
+}
+
+footer .copyright {
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  color: #4e4b66;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer nav p.nav-link {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  color: #000;
+  margin-bottom: 30px;
+}
+
+footer p.explore,
+footer p.our-sponsor,
+footer p.follow-us {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  line-height: 20px;
+  color: #000;
+  margin-bottom: 30px;
+}
+
+footer nav a.nav-link {
+  margin-bottom: 14px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+  color: #4e4b66;
+  transition: 0.5s ease;
+}
+
+footer nav a.nav-link:hover {
+  color: black;
+}
+
+footer nav.explore a.nav-link {
+  margin-top: -10px;
+}
+
+footer nav.sponsor {
+  transform: translateY(-2px);
+}
+
+footer nav.sponsor a:first-of-type img {
+  width: 122px;
+  height: 45px;
+}
+
+footer nav.sponsor a:nth-of-type(2) img {
+  width: 174px;
+  height: 28px;
+}
+
+footer nav.sponsor a:last-of-type img {
+  width: 80px;
+  height: 26px;
+}
+
+footer nav.follow-us a {
+  white-space: nowrap;
+}
+
+footer nav.follow-us .facebook,
+footer nav.follow-us .instagram,
+footer nav.follow-us .twitter,
+footer nav.follow-us .youtube {
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+}
+
+footer nav.follow-us span {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+  color: #6e7191;
+  transition: 0.5s ease;
+}
+
+footer nav.follow-us span:hover {
+  color: #000;
+}
+
+@media screen and (max-width: 767px) {
+  footer .logo {
+    width: 153px;
+    height: 60px;
+  }
+
+  footer p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  footer nav a.nav-link {
+    margin-bottom: 0px;
+    line-height: 26px;
+    letter-spacing: 0.75px;
+    color: #6e7191;
+  }
+
+  footer nav.explore a:nth-of-type(3) {
+    order: 4;
+  }
+
+  footer nav.sponsor a:first-of-type img {
+    width: 81px;
+    height: 30px;
+  }
+
+  footer nav.sponsor a:nth-of-type(2) img {
+    width: 106px;
+    height: 17px;
+  }
+
+  footer nav.sponsor a:last-of-type img {
+    width: 77px;
+    height: 25px;
+  }
+
+  footer p.explore,
+  footer p.our-sponsor,
+  footer p.follow-us {
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: 0.75px;
+    margin-bottom: 0px;
+  }
+
+  footer nav.follow-us .facebook,
+  footer nav.follow-us .instagram,
+  footer nav.follow-us .twitter,
+  footer nav.follow-us .youtube {
+    width: 24px;
+    height: 24px;
+    margin-right: 0px;
+  }
+
+  footer nav.follow-us span {
+    display: none;
+  }
+}
+@media screen and (max-width: 435px) {
+  footer nav.explore a.nav-link {
+    margin-top: 0px;
+  }
+}

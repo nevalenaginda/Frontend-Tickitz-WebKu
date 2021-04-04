@@ -1,0 +1,41 @@
+.order-card-payment-info{
+    weight: 100%;
+    background-color: white !important;
+    
+}
+
+.font1-rs{
+    font-size: min(3.3vw, 16px);
+}
+
+.font3-rs{
+    font-size: min(3vw, 14px);
+}
+
+.font4-rs{
+    font-size: min(2.5vw, 9px);
+}
+
+.font5-rs{
+    font-size: min(2.8vw, 14px);
+}
+
+.font6-rs{
+    font-size: min(6vw, 25px);
+}
+.img-cinema-order{
+max-width: 250px !important;
+}
+
+.select-seat{
+    width:100%;
+    min-width:50px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 8px;
+    border-color: white;
+}
+
+.font2-rs{
+    font-size: min(4vw, 23px);
+}

@@ -1,0 +1,163 @@
+@font-face {
+  font-family: "mulis";
+  src: url("../src/assets/fonts//font-mulis/Mulish-Regular.ttf");
+}
+
+* {
+  font-family: "mulis";
+  text-decoration: none;
+  list-style: none;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(transparent, #b1afb9);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(transparent, #460fdf);
+}
+
+.f-sm {
+  font-size: small !important;
+}
+
+.f-md {
+  font-size: 1em;
+}
+
+.f-lg {
+  font-size: 20px;
+}
+
+.f-xl {
+  font-size: 26px;
+}
+
+.f-xxl {
+  font-size: 2.5rem;
+}
+
+.f-weight {
+  font-weight: 600;
+}
+
+.color1 {
+  color: #5f2eea !important;
+}
+
+.color2 {
+  color: #6e7191 !important;
+}
+
+.color3 {
+  color: #dedede;
+}
+
+.color4 {
+  color: #ffff;
+}
+
+.color5 {
+  color: #414141;
+}
+
+.color6 {
+  color: #14142b;
+}
+
+.color7 {
+  color: #4e4b66;
+}
+
+.color8 {
+  color: #8692a6;
+}
+
+.color9 {
+  color: #aaaaaa !important;
+}
+
+.c-black {
+  color: #000;
+}
+
+.bg1 {
+  background: #5f2eea !important;
+}
+
+.bg2 {
+  background: #6e7191;
+}
+
+.bg3 {
+  background: #ffff !important;
+}
+
+.bg4 {
+  background: #f5f6f8 !important;
+}
+
+.bg5 {
+  background: #eff0f6 !important;
+}
+
+.bg6 {
+  background: #00ba88 !important;
+}
+.bgwarning {
+  background: rgba(244, 183, 64, 0.3);
+  border-radius: 4px;
+}
+
+.bg-fb {
+  color: #395185 !important;
+}
+
+.bg-google {
+  color: rgba(214, 25, 25, 0.774);
+}
+.line {
+  text-decoration: underline;
+}
+.border1 {
+  border-style: 1px solid !important;
+  border-color: #5f2eea !important;
+}
+
+.btn-input {
+  color: #fff !important;
+  background: #5f2eea !important;
+}
+
+.btn-input:hover {
+  color: #fff;
+  background: #7342fa !important;
+}
+
+.btn-shadow {
+  background: #fff;
+  border: 1px solid #dedede;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+input.box {
+  font-size: 0.8em;
+  background: #fcfdfe;
+  border: 1px solid #dedede;
+}

@@ -1,0 +1,289 @@
+/* Header */
+
+.movie-header {
+  width: 332px;
+  height: 458px;
+  border-radius: 16px;
+  background-color: #fff;
+  border: 2px solid #dedede;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-header img {
+  width: 237px;
+  height: 362px;
+  border-radius: 6px;
+}
+
+/* header h1 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 34px;
+  letter-spacing: 1px;
+  color: #14142b;
+} */
+
+header h2 {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.75px;
+  color: #8692a6;
+}
+
+header .genre {
+  margin-top: 0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 34px;
+  letter-spacing: 0.75px;
+  color: #4e4b66;
+}
+
+header p {
+  margin-top: -10px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  letter-spacing: 0.75px;
+  color: #121212;
+}
+
+hr {
+  border: 0.5px solid #d6d8e7;
+}
+
+/* Synopsis */
+.synopsis {
+  margin-bottom: 1px;
+}
+
+.synopsis h2 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 34px;
+  letter-spacing: 0.5px;
+  color: #000000;
+}
+
+.synopsis p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  letter-spacing: 0.75px;
+  color: #4e4b66;
+}
+
+/* Date */
+.date {
+  margin-bottom: 50px;
+}
+
+.date h2 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: 0.25px;
+  color: #14142b;
+}
+
+.date .form-inline input[type="date"],
+.date .form-inline select {
+  width: 284px;
+  height: 56px;
+  appearance: none;
+  background-color: #eff0f6;
+  border-radius: 6px;
+  margin-left: 24px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: 0.25px;
+  color: #4e4b66;
+  border: 0;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+
+.date .form-inline select {
+  background-image: url(./img/location.png);
+  background-repeat: no-repeat;
+  background-size: 18px;
+  background-position-x: 94%;
+  background-position-y: center;
+}
+
+/* Cinema */
+.cinema {
+  margin-bottom: 100px;
+}
+
+.container-cinema {
+  display: flex;
+}
+
+.cinema-card {
+  width: 370px;
+  height: 350px;
+  background-color: #fff;
+  border: 0.5px solid #dedede;
+  box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px rgba(186, 186, 186, 0.24);
+}
+
+.cinema-card img.ebv {
+  width: 112px;
+  height: 42px;
+}
+
+.cinema-card img.cineone {
+  width: 112px;
+  height: 20px;
+}
+
+.cinema-card img.hiflix {
+  width: 112px;
+  height: 36px;
+}
+
+.cinema-card h2 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.75px;
+  color: #000000;
+}
+
+.cinema-card p {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.75px;
+  color: #6e7191;
+}
+
+.cinema-card hr {
+  width: 366px;
+  border: 0.5px solid #dedede;
+}
+
+.cinema-card p.nav-link {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 23px;
+  letter-spacing: 0.75px;
+  color: #4e4b66;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.cinema-card p.nav-link.empty {
+  color: #a0a3bd;
+}
+
+.cinema-card p.nav-link.activated {
+  color: #5f2eea;
+}
+
+.cinema-card h3 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  letter-spacing: 0.75px;
+  color: #6b6b6b;
+}
+
+.cinema-card p.price {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 32px;
+  letter-spacing: 0.75px;
+  color: #000000;
+}
+
+button.book-now {
+  width: 134px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: #5f2eea;
+  box-shadow: 0px 8px 24px rgba(95, 46, 234, 0.24);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.75px;
+  color: #f7f7fc;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  transition: 0.5s ease;
+}
+
+button.book-now:hover {
+  background-color: #f7f7fc;
+  color: #5f2eea;
+  border: 1px solid #5f2eea;
+}
+
+a.add-cart {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.75px;
+  color: #5f2eea;
+  text-decoration: none;
+}
+
+a.add-cart:hover {
+  color: #a68af1;
+}
+
+.cinema ul.pagination-custom {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.cinema ul.pagination-custom li a {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  border: 0.5px solid #dedede;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 34px;
+  letter-spacing: 0.75px;
+  color: #4e4b66;
+  text-decoration: none;
+  transition: 0.5s ease;
+}
+
+.cinema ul.pagination-custom li a:hover {
+  background-color: #5f2eea;
+  box-shadow: 0px 8px 16px rgba(95, 46, 234, 0.24);
+  border: 0.5px solid transparent;
+  color: #fff;
+}
+
+.cinema ul.pagination-custom li a.page-active {
+  background-color: #5f2eea;
+  box-shadow: 0px 8px 16px rgba(95, 46, 234, 0.24);
+  border: 0.5px solid transparent;
+  color: #fff;
+}
+
+.cinema ul.pagination-custom li a.page-active:hover {
+  background-color: #ffffff;
+  border: 0.5px solid #dedede;
+  color: #4e4b66;
+  box-shadow: inherit;
+}

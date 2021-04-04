@@ -1,0 +1,336 @@
+/* Header */
+header {
+  padding-top: 48px !important;
+  padding-bottom: 200px !important;
+}
+
+header p {
+  font-size: 24px !important;
+  font-weight: 400 !important;
+  color: #a0a3bd !important;
+}
+
+header h1 {
+  font-size: 56px !important;
+  font-weight: 700 !important;
+  color: #5f2eea !important;
+  margin-top: -10px !important;
+}
+
+.card-movie {
+  width: 107px;
+  height: 352px;
+  border-radius: 10px;
+  filter: drop-shadow(8px 16px 30px rgba(0, 0, 0, 0.3));
+  margin-right: 24px;
+  position: relative;
+}
+
+.card-movie img {
+  height: 100%;
+}
+
+.card-movie::after {
+  content: "";
+  display: block;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+}
+
+/* Now Showing */
+.showing-movie {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.showing-movie .now-showing,
+.upcoming-movies .upcoming {
+  font-size: 24px;
+  font-weight: 700;
+  color: #14142b;
+}
+
+.showing-movie .now-showing::after {
+  content: "";
+  display: block;
+  width: 100px;
+  background: #5f2eea;
+  border: 2px solid #5f2eea;
+  border-radius: 2px;
+  margin: 16px auto 0 auto;
+}
+
+.showing-movie a,
+.upcoming-movies a {
+  font-weight: 700;
+  font-size: 16px;
+  color: #5f2eea;
+  text-decoration: none;
+}
+
+.showing-movie a:hover,
+.upcoming-movies a:hover {
+  color: #a68af1;
+}
+
+.now-showing-movie {
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.showing-movie .card {
+  display: inline-block;
+  width: 223px;
+  height: 308px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 8px 32px rgba(186, 186, 186, 0.24);
+  border: 0;
+  margin-right: 16px;
+}
+
+.showing-movie .card img {
+  width: 159px;
+  height: 244px;
+}
+
+/* Upcoming Movies */
+.upcoming-movies {
+  margin-top: 100px;
+  padding-bottom: 138px;
+}
+
+.upcoming-movies .container-btn-month {
+  white-space: nowrap;
+  overflow: auto;
+  margin-bottom: 50px;
+}
+
+.upcoming-movies .btn-month.main {
+  width: 127px;
+  height: 42px;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #5f2eea;
+  box-shadow: 0px 8px 30px rgba(95, 46, 234, 0.3);
+  border: 1px solid transparent;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 700;
+  transition: 0.5s ease;
+}
+
+.upcoming-movies .btn-month.main:hover {
+  color: #5f2eea;
+  background-color: #fff;
+  border: 1px solid #5f2eea;
+}
+
+.upcoming-movies .btn-month {
+  width: 127px;
+  height: 42px;
+  border-radius: 4px;
+  color: #5f2eea;
+  background-color: #fff;
+  border: 1px solid #5f2eea;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+  transition: 0.5s ease;
+  margin-right: 12px;
+}
+
+.upcoming-movies .btn-month:hover {
+  color: #fff;
+  background-color: #5f2eea;
+  border: 1px solid transparent;
+}
+
+.container-upcoming-movie {
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.card-upcoming-movie {
+  width: 223px;
+  height: auto;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-upcoming-movie .card {
+  display: inline-block;
+  width: 223px;
+  height: auto;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 8px 32px rgba(186, 186, 186, 0.24);
+  border: 0;
+  margin-right: 16px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.container-upcoming-movie .card img {
+  width: 159px;
+  height: 244px;
+}
+
+.container-upcoming-movie .card p {
+  margin-top: 24px;
+  font-weight: 700;
+  font-size: 18px;
+  color: #14142b;
+  letter-spacing: 0.15px;
+  text-align: center;
+}
+
+.container-upcoming-movie .card span {
+  margin-top: -10px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #a0a3bd;
+  letter-spacing: 0.4px;
+  text-align: center;
+}
+
+.container-upcoming-movie .card .btn-details {
+  width: 159px;
+  height: 33px;
+  border-radius: 4px;
+  color: #5f2eea;
+  background-color: #fff;
+  border: 1px solid #5f2eea;
+  font-size: 14px;
+  font-weight: 400;
+  transition: 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.container-upcoming-movie .card .btn-details:hover {
+  color: #fff;
+  background-color: #5f2eea;
+  border: 1px solid transparent;
+}
+/* Join */
+.join {
+  padding-bottom: 96px;
+}
+
+.jumbotron {
+  height: 372px;
+  background-color: #fff;
+  box-shadow: 0px 16px 32px rgba(186, 186, 186, 0.3);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.jumbotron p {
+  font-weight: 400;
+  font-size: 24px;
+  color: #4e4b66;
+}
+
+.jumbotron h1 {
+  margin-top: -20px;
+  font-weight: 700;
+  font-size: 48px;
+  color: #5f2eea;
+}
+
+.jumbotron .join-now input {
+  height: 53px;
+  border-radius: 4px;
+  border: 2px solid #dedede;
+  box-sizing: border-box;
+  padding-left: 24px;
+  line-height: 22px;
+  letter-spacing: 0.75px;
+  color: #a0a3bd;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.5s ease;
+}
+
+.jumbotron .join-now input::-webkit-input-placeholder {
+  font-size: 14px;
+  font-weight: 600;
+  color: #a0a3bd;
+  letter-spacing: 0.75px;
+}
+
+.jumbotron .btn-join-now {
+  font-family: "Open Sans", sans-serif;
+  width: 120px;
+  height: 53px;
+  border-radius: 4px;
+  background-color: #5f2eea;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  line-height: 19px;
+  box-sizing: border-box;
+  color: #fff;
+  transition: 0.5s ease;
+  border: 1px solid transparent;
+}
+
+.jumbotron .btn-join-now:hover {
+  border: 1px solid #5f2eea;
+  background-color: #fff;
+  color: #5f2eea;
+}
+
+.jumbotron p.text-join-now {
+  margin-top: 40px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.75px;
+  color: #6e7191;
+}
+
+.jumbotron p.text-join-now br:last-of-type {
+  display: none;
+}
+
+.card-movie:first-of-type {
+  transform: translateY(68px);
+}
+
+.card-movie:nth-of-type(2) {
+  transform: translateY(32px);
+}
+
+@media only screen and (max-width: 576px) {
+  header h1 {
+    font-size: 10vw !important;
+  }
+  header p {
+    font-size: 4vw !important;
+  }
+}
+
+@media (max-width: 1316px) {
+  .now-showing-movie,
+  .container-upcoming-movie {
+    overflow: auto;
+  }
+}

@@ -1,0 +1,48 @@
+.col-profile {
+  flex-direction: row !important;
+  align-items: center;
+}
+
+.border-points {
+  background-image: url("./img/Kartu Users.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  min-width: 200px;
+  max-width: 250px;
+  height: 120px;
+  box-shadow: 0px 8px 32px #5f2eea;
+  border-color: #f2eeae;
+  border-radius: 8px;
+}
+
+.progressbar-profile {
+  background: #5f2eea;
+  width: 64%;
+}
+
+.border-profile {
+  border-radius: 6px;
+  border-color: #f5f6f8;
+}
+
+.border-profile-active {
+  border-bottom: 2px solid #5f2eea;
+}
+
+.profil-User {
+  width: 180px;
+  clip-path: circle();
+}
+
+.bg-card-order-history {
+  background: White;
+}
+
+@media only screen and (max-width: 576px) {
+  .bg-card-order-history {
+    background: none;
+  }
+}

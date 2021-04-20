@@ -46,5 +46,9 @@ Kemudian ketikan text berikut untuk menjalankan
 "npm run start"
 ```
 
-Untuk project beginner backend tiket film dapat dilihat <a href="https://github.com/nevalenaginda/Beginner-Backend-Tickitz-WebKu/tree/master">disini</a> 
+### Link:
+
+- [Backend](https://github.com/nevalenaginda/Backend-Tickitz-WebKu)
+- [Visit Project](https://amazing-galileo-c1506b.netlify.app/)
+
 

@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const handleLogout = () => {
-  localStorage.removeItem("access");
-  localStorage.removeItem("id_user");
+  // localStorage.removeItem("access");
+  // localStorage.removeItem("id_user");
   localStorage.removeItem("token");
 };
 

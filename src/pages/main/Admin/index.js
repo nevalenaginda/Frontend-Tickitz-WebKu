@@ -13,8 +13,6 @@ import HiflixLogo from "./assets/img/hiflix-cinema.png";
 import EbvIdLogo from "./assets/img/ebv.id-cinema.png";
 import Chart from "./assets/img/Chart.png";
 
-// const { REACT_APP_API_TICKET } = process.env;
-
 function Admin() {
   const dispatch = useDispatch();
   const [formMovie, setFormMovie] = useState({
@@ -53,7 +51,7 @@ function Admin() {
         alertCustom("success", res.data.information.message);
       })
       .catch((err) => {
-        alertCustom("error", err.response.data.information.message);
+        alertCustom("error", "Failed. Please check again before submit.");
       });
     console.log(formMovie);
   };
@@ -63,7 +61,6 @@ function Admin() {
       ...formMovie,
       image: e.target.files[0],
     });
-    console.log(formMovie);
   };
 
   // const submitHandler = (e) => {

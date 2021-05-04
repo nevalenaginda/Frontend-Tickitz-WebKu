@@ -19,8 +19,10 @@ export default function Profile() {
   const { login } = useSelector((state) => state.loginPage);
   const [img, setImg] = useState([]);
 
-  const id_user = localStorage.getItem("id_user");
-  // console.log("ini id", id_user);
+  // const id_user = localStorage.getItem("id_user");
+  const data = useSelector((state) => state.loginPage);
+  const id_user = data.login.id_user;
+  // console.log("ini id", data.login.id_user);
   const token = localStorage.getItem("token");
 
   const { register, handleSubmit } = useForm();

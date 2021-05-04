@@ -7,7 +7,7 @@ import "../../../assets/style/all-movies.css";
 function NowShowing() {
   return (
     <Fragment>
-      <CustomNavBar></CustomNavBar>
+      <CustomNavBar login={localStorage.getItem("token")}></CustomNavBar>
       <Main></Main>
       <CustomFooter></CustomFooter>
     </Fragment>

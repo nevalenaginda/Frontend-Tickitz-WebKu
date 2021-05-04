@@ -19,11 +19,10 @@ export const loginProcess = (data) => (dispatch) => {
     axios
       .post(`${REACT_APP_API_TICKET}/user/login`, data)
       .then((res) => {
-        const { id_user, token, access } = res.data.data;
+        const { id_user, token } = res.data.data;
         dispatch(loginSuccess(res.data.data));
 
-        localStorage.setItem("id_user", id_user || null);
-        localStorage.setItem("access", access);
+        // localStorage.setItem("id_user", id_user || null);
         localStorage.setItem("token", token || "");
         resolve(res);
       })

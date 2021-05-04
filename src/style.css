@@ -78,7 +78,7 @@ body {
 }
 
 .color6 {
-  color: #14142b;
+  color: #14142b !important;
 }
 
 .color7 {
@@ -94,7 +94,7 @@ body {
 }
 
 .c-black {
-  color: #000;
+  color: black !important;
 }
 
 .bg1 {

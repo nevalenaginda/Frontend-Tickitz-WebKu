@@ -12,6 +12,10 @@ import logoBri from "./assets/image/bri.png";
 import logoOvo from "./assets/image/ovo.png";
 
 export class Payment extends Component {
+  handlePayOrder = (e) => {
+    e.preventDefault();
+    this.props.history.push(`/ticket`);
+  };
   render() {
     return (
       <div>
@@ -22,7 +26,7 @@ export class Payment extends Component {
               <div className="col-12 pt-5  font2-rs font-weight-bold ">
                 Payment Info
               </div>
-              
+
               <div className="col-12 mt-2 mb-4 card">
                 <div className="row pt-4  d-flex">
                   <div className="col-5">
@@ -180,7 +184,10 @@ export class Payment extends Component {
                 </div>
                 <div className="col-12 mt-2  text-center">
                   <p>
-                    Pay via cash. <a className="color1" href="/">See how it works</a>
+                    Pay via cash.{" "}
+                    <a className="color1" href="/">
+                      See how it works
+                    </a>
                   </p>
                 </div>
               </div>
@@ -192,7 +199,10 @@ export class Payment extends Component {
                 </div>
 
                 <div className="col-12 col-md-6  d-none  d-md-block">
-                  <button className="btn btn-input w-100">
+                  <button
+                    onClick={this.handlePayOrder}
+                    className="btn btn-input w-100"
+                  >
                     Pay your order
                   </button>
                 </div>

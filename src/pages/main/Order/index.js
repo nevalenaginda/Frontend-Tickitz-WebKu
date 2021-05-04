@@ -6,7 +6,17 @@ import ImageSeatsWeb from "./assets/img/seat.PNG";
 import ImageSeatsMobile from "./assets/img/seat_mobile.PNG";
 import LogoCineOne21 from "./assets/img/CineOne21.png";
 export class Order extends Component {
-  render() {
+  handleCheckout = (e) => {
+    e.preventDefault();
+    this.props.history.push(`/payment`);
+  };
+
+  render(props) {
+    const movie_title = this.props.location.state.schedule.movie_title;
+    const movie_price = this.props.location.state.schedule.price;
+    const cinema_logo = this.props.location.state.schedule.logo_cinema;
+    const cinema_name = this.props.location.state.schedule.cinema_name;
+
     return (
       <div>
         <div className="">
@@ -20,9 +30,7 @@ export class Order extends Component {
               </div>
               <div className="col-12 mt-2 mb-4 card d-flex flex-row align-middle">
                 <div className="col-7 col-md-7 float-left mt-3 mb-1">
-                  <p className=" font1-rs h-50 f-weight">
-                    Spider-Man: Homecoming
-                  </p>
+                  <p className=" font1-rs h-50 f-weight">{movie_title}</p>
                 </div>
 
                 <div className="col col-md mt-1 mb-1 ">
@@ -219,7 +227,12 @@ export class Order extends Component {
                 </div>
 
                 <div className="col-12 col-md-6  d-none  d-md-block">
-                  <button className="btn btn-input w-100">Checkout now</button>
+                  <button
+                    onClick={(e) => this.handleCheckout(e)}
+                    className="btn btn-input w-100"
+                  >
+                    Checkout now
+                  </button>
                 </div>
               </div>
             </div>
@@ -232,7 +245,7 @@ export class Order extends Component {
                 <div className="card-header bg-white">
                   <div className="col-12 mt-3 text-center ">
                     <img
-                      src={LogoCineOne21}
+                      src={cinema_logo}
                       className="img-fluid img-cinema-order"
                       alt="logo cinema"
                       width="100%"
@@ -240,9 +253,7 @@ export class Order extends Component {
                     />
                   </div>
                   <div className="col-12 mt-0 text-center ">
-                    <p className="font-weight-bold font6-rs">
-                      CineOne21 Cinema
-                    </p>
+                    <p className="font-weight-bold font6-rs">{cinema_name}</p>
                   </div>
                   <div className="row mt-3  d-flex">
                     <div className="col-5">
@@ -250,7 +261,7 @@ export class Order extends Component {
                     </div>
                     <div className="col-7">
                       <p className=" font3-rs f-weight text-right">
-                        Spider-Man: Homecoming
+                        {movie_title}
                       </p>
                     </div>
                   </div>
@@ -272,7 +283,7 @@ export class Order extends Component {
                     </div>
 
                     <div className="col-4">
-                      <p className=" font3-rs f-weight text-right">Rp35.000</p>
+                      <p className=" font3-rs f-weight text-right">{`Rp${movie_price}`}</p>
                     </div>
                   </div>
                   <div className="row  d-flex">
@@ -303,7 +314,12 @@ export class Order extends Component {
           </div>
           <div className="row">
             <div className="col-12 d-md-none mb-4">
-              <button className="btn btn-input w-100">Checkout now</button>
+              <button
+                onClick={(e) => this.handleCheckout(e)}
+                className="btn btn-input w-100"
+              >
+                Checkout now
+              </button>
             </div>
           </div>
         </div>

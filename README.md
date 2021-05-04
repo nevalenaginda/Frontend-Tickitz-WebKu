@@ -61,6 +61,6 @@ Kemudian ketikan text berikut untuk menjalankan
 ### Link:
 
 - [Backend](https://github.com/nevalenaginda/Backend-Tickitz-WebKu)
-- [Visit Project](https://amazing-galileo-c1506b.netlify.app/)
+- [Visit Project](http://100.25.29.134:3000/)
 
 

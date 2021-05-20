@@ -2,6 +2,7 @@
 <p align="center">
   <a href="https://booking-tickitz-film.netlify.app/" target="_blank"><img src="https://i.ibb.co/tzSzq4x/Tickitz-2.png" alt="Tickitz-2" border="0" /></a>
 </p>
+
 ### Informasi
 
 File ini merupakan contoh pembuatan frontend web tiket sederhana yang dibangun menggunakan React Js. Frontend web ini  dapat melakukan create, read, update, dan delete data dari suatu API tiket film yang dibuat pada postingan sebelumnya.
@@ -53,7 +54,7 @@ Kemudian ketikan text berikut untuk menjalankan
 
 <p align="center">
   <span>
-    <img width="700" height="auto" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Home.png">   
+    <img width="500" height="auto" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Home.png">   
     <img width="500" height="250" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Sign%20In.png">   
     <img width="500" height="250" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Order%20Ticket.png">   
   </span>

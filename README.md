@@ -53,9 +53,9 @@ Kemudian ketikan text berikut untuk menjalankan
 
 <p align="center">
   <span>
-    <img width="350" height="auto" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Home.png">   
-    <img width="250" height="250" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Sign%20In.png">   
-    <img width="250" height="250" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Order%20Ticket.png">   
+    <img width="700" height="auto" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Home.png">   
+    <img width="500" height="250" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Sign%20In.png">   
+    <img width="500" height="250" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Order%20Ticket.png">   
   </span>
 </p>
 

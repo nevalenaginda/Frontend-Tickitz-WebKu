@@ -1,4 +1,7 @@
-# Intermediate Frontend Tickitz Webku
+<h1 align="center">Tickitz</h1>
+<p align="center">
+  <a href="https://booking-tickitz-film.netlify.app/" target="_blank"><img src="https://i.ibb.co/tzSzq4x/Tickitz-2.png" alt="Tickitz-2" border="0" /></a>
+</p>
 ### Informasi
 
 File ini merupakan contoh pembuatan frontend web tiket sederhana yang dibangun menggunakan React Js. Frontend web ini  dapat melakukan create, read, update, dan delete data dari suatu API tiket film yang dibuat pada postingan sebelumnya.
@@ -46,21 +49,19 @@ Kemudian ketikan text berikut untuk menjalankan
 "npm run start"
 ```
 
-### `Preview`
+## Screenshots
 
-#### `Home Page`
-![home](https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Home.png)
-
-#### `#2 Sign In`
-![sign-in](https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Sign%20In.png)
-
-#### `#3 Order Ticket`
-![order-ticket](https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Order%20Ticket.png)
-
+<p align="center">
+  <span>
+    <img width="350" height="auto" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Home.png">   
+    <img width="250" height="250" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Sign%20In.png">   
+    <img width="250" height="250" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Order%20Ticket.png">   
+  </span>
+</p>
 
 ### Link:
 
 - [Backend](https://github.com/nevalenaginda/Backend-Tickitz-WebKu)
-- [Visit Project](http://100.25.29.134:3000/)
+- [Visit Project](https://tickitz-apps.netlify.app)
 
 

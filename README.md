@@ -65,14 +65,14 @@ Kemudian ketikan text berikut untuk menjalankan
 
 <p align="center">
   <span>
-    <img width="400" style="background-size: cover;" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Home.png">   
-    <img width="400" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Sign%20In.png">   
+    <img width="400"  src="https://user-images.githubusercontent.com/55057008/119272765-d8b39800-bc31-11eb-9423-cc7fd61952e7.png">   
+    <img width="400" src="https://user-images.githubusercontent.com/55057008/119272792-f97bed80-bc31-11eb-9ac8-0482217e6416.png">   
     <img width="400" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Order%20Ticket.png">   
   </span>
 </p>
 
 ### Link:
 - :white_check_mark: [Backend](https://github.com/nevalenaginda/Backend-Tickitz-WebKu)
-- :rocket: [Deploy]((https://tickitz-apps.netlify.app)
+- :rocket: [Deploy](https://tickitz-apps.netlify.app)
 
 

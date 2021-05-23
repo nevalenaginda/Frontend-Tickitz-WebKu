@@ -5,7 +5,18 @@
 
 ### Informasi
 
-File ini merupakan contoh pembuatan frontend web tiket sederhana yang dibangun menggunakan React Js. Frontend web ini  dapat melakukan create, read, update, dan delete data dari suatu API tiket film yang dibuat pada postingan sebelumnya.
+Tickitz Web-Ku merupakan aplikasi web yang dibangun menggunakan Reactjs di sisi frontend, serta Nodejs dan Expressjs di sisi backend. Website ini berfungsi untuk memesan tiket film secara online sehingga mudah digunakan oleh user mobile dan desktop.
+
+
+## Fitur
+- Autentikasi
+- Authorisasi
+- Ubah Password
+- Pencarian Film
+- Pemesanan Tiket
+- Download Tiket
+- Ubah Profil
+- Upload Gambar
 
 ### Modules
 
@@ -54,15 +65,14 @@ Kemudian ketikan text berikut untuk menjalankan
 
 <p align="center">
   <span>
-    <img width="400" height="500" style="background-size: cover;" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Home.png">   
-    <img width="400" height="500" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Sign%20In.png">   
-    <img width="400" height="500" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Order%20Ticket.png">   
+    <img width="400" style="background-size: cover;" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Home.png">   
+    <img width="400" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Sign%20In.png">   
+    <img width="400" src="https://github.com/nevalenaginda/Frontend-Tickitz-WebKu/blob/e3cca1e933b072c9edb7739b86a5a7898c1df081/display%20images/Order%20Ticket.png">   
   </span>
 </p>
 
 ### Link:
-
-- [Backend](https://github.com/nevalenaginda/Backend-Tickitz-WebKu)
-- [Visit Project](https://tickitz-apps.netlify.app)
+- :white_check_mark: [Backend](https://github.com/nevalenaginda/Backend-Tickitz-WebKu)
+- :rocket: [Deploy]((https://tickitz-apps.netlify.app)
 
 

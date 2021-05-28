@@ -5,12 +5,12 @@
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Modules](#modules)
-- [Installation](#installation)
-- [Preview](#preview)
-- [Link](#link)
+- [Introduction](#🧐-introduction)
+- [Features](#💻-features)
+- [Modules](#⛏️-modules)
+- [Installation](#💻-installation)
+- [Preview](#💻-preview)
+- [Link](#✍️-link)
 
 ### 🧐 Introduction
 
@@ -83,7 +83,7 @@ $ npm install
 4. Create environment variable.
 
 ```
-$ cp .env.example .env
+$ nano .env
 ```
 
 5. Run this application.

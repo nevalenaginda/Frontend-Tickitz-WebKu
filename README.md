@@ -3,14 +3,6 @@
   <a href="https://tickitz-apps.netlify.app" target="_blank"><img src="https://i.ibb.co/tzSzq4x/Tickitz-2.png" alt="Tickitz-2" border="0" /></a>
 </p>
 
-## Table of Contents
-
-- [Introduction](#🧐-introduction)
-- [Features](#💻-features)
-- [Modules](#⛏️-modules)
-- [Installation](#💻-installation)
-- [Preview](#💻-preview)
-- [Link](#✍️-link)
 
 ### 🧐 Introduction
 

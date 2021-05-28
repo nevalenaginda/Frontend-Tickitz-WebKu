@@ -3,22 +3,40 @@
   <a href="https://tickitz-apps.netlify.app" target="_blank"><img src="https://i.ibb.co/tzSzq4x/Tickitz-2.png" alt="Tickitz-2" border="0" /></a>
 </p>
 
-### Informasi
+## Table of Contents
 
-Tickitz Web-Ku merupakan aplikasi web yang dibangun menggunakan Reactjs di sisi frontend, serta Nodejs dan Expressjs di sisi backend. Website ini berfungsi untuk memesan tiket film secara online sehingga mudah digunakan oleh user mobile dan desktop.
+- [Introduction](#introduction)
+- [Features](#features)
+- [Modules](#modules)
+- [Installation](#installation)
+- [Preview](#preview)
+- [Link](#link)
+
+### 🧐 Introduction
+
+Tickitz is a web application built using Reactjs on the frontend side, and Nodejs and Expressjs on the backend side. This website is used to order movie tickets online, so that it is easy to use by mobile and desktop users.
 
 
-## Fitur
-- Autentikasi
-- Authorisasi
-- Ubah Password
-- Pencarian Film
-- Pemesanan Tiket
-- Download Tiket
-- Ubah Profil
-- Upload Gambar
+## 💻 Features
 
-### Modules
+- Authentication
+
+- Authorization
+
+- Reset password
+
+- Realtime movie search
+
+- Order ticket
+
+- Download ticket
+
+- Change profile
+
+- Upload image profile
+- 
+
+### ⛏️ Modules
 
 1. [Reactjs]
 2. [Axios]
@@ -42,26 +60,40 @@ Tickitz Web-Ku merupakan aplikasi web yang dibangun menggunakan Reactjs di sisi 
 
 
 
-### Tatacara Penggunaan
+## 💻 Installation
 
-Silahkan download file ini.
+1. Clone the repository.
 
-Silahkan buka file ini dalam satu folder di text editor  seperti VS Code atau sejenisnya
-
-Install module yang tertera di atas
-
-Silahkan buka terminal pada VS Code dengan menekan tombol
 ```
-CTRL + SHIFT + `
-atau
-CTRL + SHIFT + C
-```
-Kemudian ketikan text berikut untuk menjalankan
-```
-"npm run start"
+$ git clone https://github.com/nevalenaginda/Frontend-Tickitz-WebKu.git
 ```
 
-## Preview
+2. Open this project.
+
+```
+$ cd Frontend-Tickitz-WebKu
+```
+
+3. Install package.
+
+```
+$ npm install
+```
+
+4. Create environment variable.
+
+```
+$ cp .env.example .env
+```
+
+5. Run this application.
+
+```
+$ npm start
+```
+
+
+## 💻 Preview
 
 <p align="center">
   <span>
@@ -75,7 +107,7 @@ Kemudian ketikan text berikut untuk menjalankan
   </span>
 </p>
 
-### Link:
+### ✍️ Link:
 - :white_check_mark: [Backend](https://github.com/nevalenaginda/Backend-Tickitz-WebKu)
 - :rocket: [Deploy](https://tickitz-apps.netlify.app)
 

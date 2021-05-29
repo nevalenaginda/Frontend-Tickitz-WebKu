@@ -19,6 +19,7 @@ export default function Profile() {
   const Url = process.env.REACT_APP_API_TICKET;
   const UrlApiImage = process.env.REACT_APP_API_IMAGE;
   const [imgUrl, setImgUrl] = useState(`${UrlApiImage}/default.png`);
+
   const [dataImage, setDataImage] = useState({ image: null });
 
   const [dataUser, setDatauser] = useState(user);
@@ -81,6 +82,10 @@ export default function Profile() {
       })
       .catch((err) => {
         setLoading(false);
+        setImgUrl(user.profil_image);
+        setDataImage({
+          image: null,
+        });
         Swal.fire({
           icon: "error",
           text: err.response.data.information.message,

@@ -1,11 +1,15 @@
 import { Redirect, Route } from "react-router";
 import { useSelector } from "react-redux";
+// import ScrollToTop from "../../components/base/scrollToTop";
 
 const AuthRoute = (props) => {
   const { type } = props;
-  const { login } = useSelector((state) => state.loginPage);
+  const { user } = useSelector((state) => state.user);
   const isAuth = localStorage.getItem("token");
-  const role = login.access;
+  let role = null;
+  if (user) {
+    role = user.access;
+  }
 
   if (type === "adminOnly" && role !== 0) return <Redirect to="/" />;
   else if (type === "guest" && isAuth) return <Redirect to="/" />;

@@ -1,40 +1,51 @@
 import React from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
+import Moment from "moment";
+import { useHistory, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getProfile } from "../../../config/redux/actions/user";
 import { Nav, NavItem, NavLink, TabContent, TabPane } from "reactstrap";
 import classnames from "classnames";
-import { useState, useEffect, useCallback } from "react";
-import { useSelector } from "react-redux";
-import { ProgressBar } from "react-bootstrap/";
 import "./assets/StyleProfile.css";
 import CustomNavBar from "../../../components/NavBar";
 import CustomFooter from "../../../components/Footer";
-import logoCineOne21 from "./assets/img/CineOne21-cinema.png";
-import logoEbvid from "./assets/img/ebv.id-cinema.png";
-import alertCustom from "../../../components/Alerts";
-import { useForm } from "react-hook-form";
 
 export default function Profile() {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-  const [dataUser, setDatauser] = useState({});
-  const { login } = useSelector((state) => state.loginPage);
-  const [img, setImg] = useState([]);
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const { user } = useSelector((state) => state.user);
+  const Url = process.env.REACT_APP_API_TICKET;
+  const UrlApiImage = process.env.REACT_APP_API_IMAGE;
+  const [imgUrl, setImgUrl] = useState(`${UrlApiImage}/default.png`);
+  const [dataImage, setDataImage] = useState({ image: null });
 
-  // const id_user = localStorage.getItem("id_user");
-  const data = useSelector((state) => state.loginPage);
-  const id_user = data.login.id_user;
-  // console.log("ini id", data.login.id_user);
-  const token = localStorage.getItem("token");
+  const [dataUser, setDatauser] = useState(user);
+  const [historyTicket, setHistoryTicket] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const { register, handleSubmit } = useForm();
-  const fd = new FormData();
-
-  const config = { headers: { Authorization: `Bearer ${token}` } };
-  const configFormData = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "multipart/form-data",
-    },
+  const handleChangeImage = (event) => {
+    if (event.target.files[0]) {
+      const imgFiles = event.target.files[0];
+      setImgUrl(URL.createObjectURL(event.target.files[0]));
+      setDataImage({
+        image: imgFiles,
+      });
+    }
   };
+
+  const changeTime = (time) => {
+    return Moment(time).format("LLLL");
+  };
+
+  useEffect(() => {
+    if (user.id_user) {
+      setDatauser(user);
+      setImgUrl(user.profil_image);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [user]);
 
   const [activeTab, setActiveTab] = useState("1");
 
@@ -42,52 +53,59 @@ export default function Profile() {
     if (activeTab !== tab) setActiveTab(tab);
   };
 
-  const { REACT_APP_API_TICKET } = process.env;
-  // eslint-disable-next-line
-  const getDataUser = useCallback(() => {
-    axios
-      .get(`${REACT_APP_API_TICKET}user/${id_user}`, config)
-      .then((response) => {
-        setDatauser(response.data.data[0]);
-        // console.log(response.data.data[0]);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
-  useEffect(() => {
-    getDataUser();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  const updateDataUser = async (e) => {
-    fd.append("first_name", dataUser.first_name);
-    fd.append("last_name", dataUser.last_name);
-    fd.append("email", dataUser.email);
-    fd.append("phone_number", dataUser.phone_number);
-    if (img.length !== 0) {
-      fd.append("image", img);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append("first_name", dataUser.first_name);
+    formData.append("last_name", dataUser.last_name);
+    formData.append("email", dataUser.email);
+    formData.append("phone_number", dataUser.phone_number);
+    if (dataImage.image !== null) {
+      formData.append("image", dataImage.image);
     }
+    const token = localStorage.getItem("token");
+    const id_user = localStorage.getItem("id_user");
+    const config = { headers: { Authorization: `Bearer ${token}` } };
+    setLoading(true);
     axios
-      .patch(REACT_APP_API_TICKET + "user/" + id_user, fd, configFormData)
+      .patch(Url + "user/update/" + id_user, formData, config)
       .then((res) => {
-        alertCustom("success", res.data.information.message);
-        getDataUser();
-        login.profil_image = res.data.data[0].profil_image;
+        dispatch(getProfile());
+        setLoading(false);
+        Swal.fire({
+          icon: "success",
+          text: res.data.information.message,
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((err) => {
-        alertCustom("error", err.response.data.message);
+        setLoading(false);
+        Swal.fire({
+          icon: "error",
+          text: err.response.data.information.message,
+          showConfirmButton: true,
+        });
       });
   };
 
-  const onSubmit = async (data) => {
-    // const image = data.image[0]
-    setImg(data.image[0]);
-    // if (image.type !== 'image/png' && image.type !== 'image/jpg' && image.type !== 'image/jpeg') {
-    //   alertCustom("info", "Format harus PNG/JPG");
-    // } else {
-    //   setImg(data.image[0])
-    // }
-  };
+  useEffect(() => {
+    if (activeTab === "2") {
+      const token = localStorage.getItem("token");
+      const id_user = localStorage.getItem("id_user");
+      const config = { headers: { Authorization: `Bearer ${token}` } };
+      axios
+        .get(Url + "ticket/all-detail/" + id_user, config)
+        .then((res) => {
+          // console.log("data history ticket", res.data.data);
+          setHistoryTicket(res.data.data);
+        })
+        .catch((err) => {
+          setHistoryTicket([]);
+        });
+    }
+  }, [activeTab, Url]);
+
   return (
     <>
       <CustomNavBar login={localStorage.getItem("token")} />
@@ -126,27 +144,37 @@ export default function Profile() {
                 </div>
                 <div className="col-12 text-center">
                   <img
-                    className="img-fluid img-thumbnails profil-User"
-                    src={dataUser.profil_image}
+                    style={{
+                      height: "180px",
+                      width: "180px",
+                      borderRadius: "50%",
+                      backgroundImage: "cover",
+                    }}
+                    src={imgUrl}
                     alt="profile"
                   />
                 </div>
                 {/* image */}
-                <div className="col-12 d-flex justify-content-center">
-                  <form className="form-group w-75">
+                <div className="col-12 mt-3 d-flex justify-content-center">
+                  <button className="btn btn-input w-75">
+                    <span>Change Image</span>
                     <input
                       accept="image/png/jpg"
-                      className="form-control-file"
+                      className="position-absolute"
+                      style={{
+                        left: "-100px",
+                        top: 5,
+                        opacity: 0,
+                        cursor: "pointer",
+                      }}
                       type="file"
-                      ref={register}
-                      onChange={handleSubmit(onSubmit)}
-                      name="image"
+                      onChange={handleChangeImage}
                     />
-                  </form>
+                  </button>
                 </div>
 
-                <div className="col-12 text-center f-lg f-weight color6">
-                  {dataUser.first_name + " " + dataUser.last_name}
+                <div className="col-12 mt-3 text-center f-lg f-weight color6">
+                  {user.first_name + " " + user.last_name}
                 </div>
                 <div className="col-12 mb-3 text-center f-sm color7">
                   Moviegoers
@@ -167,7 +195,16 @@ export default function Profile() {
                   180 points become a master
                 </div>
                 <div className="col-12 mt-2 mb-4">
-                  <ProgressBar className="color1" now={64} />
+                  <div className="progress">
+                    <div
+                      className="progress-bar"
+                      role="progressbar"
+                      style={{ width: "64%", background: "#5f2eea" }}
+                      aria-valuenow="64"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -202,7 +239,9 @@ export default function Profile() {
               <TabContent activeTab={activeTab}>
                 <TabPane tabId="1">
                   <div className="col-12 pt-4 d-flex flex-column ">
-                    <div className="f-md">Details Information</div>
+                    <div className="f-md font-weight-bold">
+                      Details Information
+                    </div>
                     <hr className="hr-color color-black w-100" />
                   </div>
                   <div className="web col-12 mt-3">
@@ -269,7 +308,7 @@ export default function Profile() {
                             <input
                               type="text"
                               className="form-control"
-                              id="inlineFormInputGroup"
+                              id="inlineFormInputGroup2"
                               placeholder="Phone Number"
                               onChange={(e) =>
                                 setDatauser({
@@ -331,7 +370,7 @@ export default function Profile() {
                             <input
                               type="text"
                               className="form-control"
-                              id="inlineFormInputGroup"
+                              id="inlineFormInputGroup1"
                               placeholder="Phone Number"
                               onChange={(e) =>
                                 setDatauser({
@@ -347,7 +386,9 @@ export default function Profile() {
                     </form>
                   </div>
                   <div className="col-12 mt-5 d-flex flex-column f-md">
-                    <div className="f-md">Account and Privacy</div>
+                    <div className="f-md font-weight-bold">
+                      Account and Privacy
+                    </div>
                     <hr className="hr-color color-black w-100" />
                   </div>
                   <div className="web col-12 mt-3">
@@ -359,6 +400,7 @@ export default function Profile() {
                             type="password"
                             className="form-control"
                             placeholder="New Password"
+                            disabled
                           />
                         </div>
 
@@ -368,111 +410,107 @@ export default function Profile() {
                             type="password"
                             className="form-control"
                             placeholder="Confirm Password"
+                            disabled
                           />
                         </div>
                       </div>
                     </form>
                   </div>
-                  <div className="col-12 col-md-6 pb-5 mt-5 d-flex flex-column f-md">
+                  <div className="col-12  pb-5 mt-5 d-flex  f-md">
                     <button
-                      className="btn btn-input"
-                      onClick={(e) => updateDataUser(e)}
+                      className="btn btn-input mr-3"
+                      onClick={(e) => handleSubmit(e)}
                     >
-                      Update Change
+                      {loading ? "Loading..." : "Update Change"}
                     </button>
+                    {user.access === 0 && (
+                      <button
+                        className="btn  btn-danger"
+                        onClick={(e) => history.push("/admin")}
+                      >
+                        Admin Page
+                      </button>
+                    )}
                   </div>
                 </TabPane>
                 <TabPane tabId="2">
-                  <div className="web col-12 mt-3 py-3">
-                    <div className="card py-2">
-                      <div className="card-header bg-white">
-                        <div className="row">
-                          <div className="col-sm-12 f-md f-weight mt-2  d-sm-inline d-md-none">
-                            <img
-                              className="img-fluid h-75 w-auto img-thumbnails"
-                              src={logoCineOne21}
-                              alt="cinema"
-                            />
-                          </div>
-                          <div className="col-sm-12 col-md-6 ">
-                            <div className="color9 f-sm">
-                              Tuesday, 07 July 2020 - 04:30pm
+                  <div
+                    className="web col-12 mt-3 py-3"
+                    style={{ height: "690px", overflowY: "auto" }}
+                  >
+                    {historyTicket.length ? (
+                      historyTicket.map((item, index) => {
+                        return (
+                          <div className="card py-2 mb-2" key={index}>
+                            <div className="card-header bg-white">
+                              <div className="row">
+                                <div className="col-sm-12 f-md f-weight mt-2  d-sm-inline d-md-none">
+                                  <img
+                                    className="img-fluid h-75 w-auto img-thumbnails"
+                                    src={`${UrlApiImage}/${item.logo_cinema}`}
+                                    alt="cinema"
+                                  />
+                                </div>
+                                <div className="col-sm-12 col-md-6 ">
+                                  <div className="color9 f-sm">
+                                    {`${changeTime(item.playing_date)
+                                      .split(" ")
+                                      .slice(0, 4)
+                                      .join(" ")} - ${item.playing_time} WIB`}
+                                  </div>
+                                  <div className="f-md f-weight mt-2">
+                                    {item.movie_title}
+                                  </div>
+                                </div>
+                                <div className="col-md-6 f-md f-weight mt-2 text-right d-none d-md-inline">
+                                  <img
+                                    className="img-fluid h-75 w-auto img-thumbnails"
+                                    src={`${UrlApiImage}/${item.logo_cinema}`}
+                                    alt="cinema"
+                                  />
+                                </div>
+                              </div>
                             </div>
-                            <div className="f-md f-weight mt-2">
-                              Spider-man Homecoming
+                            <div className="row card-body d-flex justify-content-between">
+                              <div className="col-12 col-md-6  mt-2">
+                                {" "}
+                                <button
+                                  className={`btn bg6 text-center w-100 shadow-none ${
+                                    Moment(item.playing_date)
+                                      .fromNow()
+                                      .match(/ago/)
+                                      ? "bg-danger"
+                                      : "bg6"
+                                  }`}
+                                >
+                                  <span className="text-white ">
+                                    {Moment(item.playing_date)
+                                      .fromNow()
+                                      .match(/ago/)
+                                      ? "Ticket Expired"
+                                      : "Ticket In Active"}
+                                  </span>
+                                </button>
+                              </div>
+                              <div className="col-12 col-md-6 mt-2">
+                                <Link
+                                  to={`/ticket/${item.id_ticket}`}
+                                  className="btn w-100 shadow-none btn-input"
+                                >
+                                  Show Details
+                                </Link>
+                              </div>
                             </div>
                           </div>
-                          <div className="col-md-6 f-md f-weight mt-2 text-right d-none d-md-inline">
-                            <img
-                              className="img-fluid h-75 w-auto img-thumbnails"
-                              src={logoCineOne21}
-                              alt="cinema"
-                            />
-                          </div>
-                        </div>
+                        );
+                      })
+                    ) : (
+                      <div className="h-100 d-flex justify-content-center align-items-center text-danger ">
+                        <h4 className="font-weight-bold">
+                          You don't have order history..
+                        </h4>
                       </div>
-                      <div className="row card-body d-flex justify-content-between">
-                        <div className="col-sm-12 col-md-6 ">
-                          {" "}
-                          <button className="btn bg6 text-center w-100">
-                            <span className="text-white ">
-                              Ticket In Active
-                            </span>
-                          </button>
-                        </div>
-                        <div className="col-md-6 d-none d-md-flex">
-                          <button className="btn text-right w-100">
-                            <span className="color9 ">Show Details &nbsp;</span>
-                            <i className="color9 fa fa-caret-down "></i>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="card py-2 mt-3">
-                      <div className="card-header bg-white">
-                        <div className="row">
-                          <div className="col-sm-12 f-md f-weight mt-2  d-sm-inline d-md-none">
-                            <img
-                              className="img-fluid h-75 w-auto img-thumbnails"
-                              src={logoEbvid}
-                              alt="cinema"
-                            />
-                          </div>
-                          <div className="col-sm-12 col-md-6 ">
-                            <div className="color9 f-sm">
-                              Monday, 14 June 2020 - 02:00pm
-                            </div>
-                            <div className="f-md f-weight mt-2">
-                              Avengers: End Game
-                            </div>
-                          </div>
-                          <div className="col-md-6 f-md f-weight mt-2 text-right d-none d-md-inline">
-                            <img
-                              className="img-fluid h-75 w-auto img-thumbnails"
-                              src={logoEbvid}
-                              alt="cinema"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="row card-body d-flex justify-content-between">
-                        <div className="col-sm-12 col-md-6 ">
-                          {" "}
-                          <button className="btn bg6 text-center w-100">
-                            <span className="text-white ">
-                              Ticket In Active
-                            </span>
-                          </button>
-                        </div>
-                        <div className="col-md-6 d-none d-md-flex">
-                          <button className="btn text-right w-100">
-                            <span className="color9 ">Show Details &nbsp;</span>
-                            <i className="color9 fa fa-caret-down "></i>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
+                    )}
                   </div>
                 </TabPane>
               </TabContent>

@@ -7,6 +7,7 @@ const initialState = {
   totalPageUpComing: 0,
   currentPageUpComing: 0,
   limitPageUpComing: 0,
+  navBarSearch: "",
 };
 
 const homeReducer = (state = initialState, action) => {
@@ -37,6 +38,11 @@ const homeReducer = (state = initialState, action) => {
       ...state,
       upComingMovies: action.payload,
       totalPageUpComing: action.total,
+    };
+  } else if (action.type === "SEARCH_MOVIE") {
+    return {
+      ...state,
+      navBarSearch: action.payload,
     };
   } else {
     return state;

@@ -5,13 +5,24 @@
 .border-card-ticket-top {
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
+  border: 1px solid #000000;
 }
 
 .border-card-ticket-bottom {
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
+  border: 1px solid #000000;
 }
 
 .border-left-style {
-  border-left: 2px #dedede dotted !important;
+  border-left: 2px #000000 dotted !important;
+}
+
+.btn-transparent {
+  background: none !important;
+  border: 1px solid #4e4b66;
+  box-sizing: border-box;
+  border-radius: 4px;
+  width: fit-content;
+  height: 48px;
 }

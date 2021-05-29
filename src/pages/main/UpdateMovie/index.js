@@ -1,5 +1,4 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import "./assets/StyleUpdate.css";
 import axios from "axios";
 import alertCustom from "../../../components/Alerts";

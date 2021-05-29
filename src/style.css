@@ -161,3 +161,7 @@ input.box {
   background: #fcfdfe;
   border: 1px solid #dedede;
 }
+
+.not-allowed {
+  cursor: not-allowed;
+}

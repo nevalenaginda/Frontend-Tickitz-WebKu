@@ -1,19 +1,21 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 import "./assets/StyleNavbar.css";
 import NavBarLogo from "../../assets/img/logo_navbar.png";
 import { Navbar, Nav, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-const handleLogout = () => {
-  // localStorage.removeItem("access");
-  // localStorage.removeItem("id_user");
-  localStorage.removeItem("token");
-};
-
-function CustomNavBar({ login, onChange }) {
-  const { login: dataLogin } = useSelector((state) => state.loginPage);
+function CustomNavBar({ login }) {
+  const { user } = useSelector((state) => state.user);
+  let { navBarSearch } = useSelector((state) => state.homePage);
   let [state, setState] = useState(false);
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+  };
 
   return (
     <div>
@@ -34,15 +36,17 @@ function CustomNavBar({ login, onChange }) {
               <input
                 type="text"
                 // onFocus={() => history.push("/")}
-                onKeyUp={(inputMovieName) =>
-                  onChange(inputMovieName.target.value)
-                }
+                // value={navBarSearch}
+                onKeyUp={(e) => {
+                  history.push("/movies");
+                  dispatch({ type: "SEARCH_MOVIE", payload: e.target.value });
+                }}
                 placeholder="Search"
                 className="w-100 mt-3 mt-sm-4 mt-md-4 d-md-none d-lg-none d-xl-none text-center color2 border-color-1"
               />
             </Form>
             <div className="select-nav-position">
-              <select
+              {/* <select
                 className="mt-3 mt-sm-4 mt-md-4 d-md-none d-lg-none d-xl-none select-city font-weight-bold text-center color2"
                 name="select-city"
                 id="city"
@@ -62,32 +66,40 @@ function CustomNavBar({ login, onChange }) {
                 >
                   Lampung
                 </option>
-              </select>
+              </select> */}
             </div>
-            <Link
-              className="color2 mt-3 mt-sm-4 mt-md-2 mt-lg-2 font-weight-bold mx-2 text-center"
-              to="/"
-            >
-              Movies
-            </Link>
-            <Link
-              className="color2 mt-3 mt-sm-4 mt-md-2 mt-lg-2 font-weight-bold mx-2 text-center"
-              to="/admin"
+            <div className="btn bg-white border-none mt-3 mt-sm-4 mt-md-2 mt-lg-2 font-weight-bold mx-2 text-center">
+              <Link to="/movies" className="color2">
+                Movies
+              </Link>
+            </div>
+
+            <button
+              className="not-allowed btn bg-white border-none  mt-3 mt-sm-4 mt-md-2 mt-lg-2 font-weight-bold mx-2 text-center"
+              disabled
             >
               Cinemas
-            </Link>
-            <Link
-              className="color2 mt-3 mt-sm-4 mt-md-2 mt-lg-2 font-weight-bold mx-2 text-center"
-              to="/order"
+            </button>
+            <button
+              className="not-allowed  btn bg-white border-none mt-3 mt-sm-4 mt-md-2 mt-lg-2 font-weight-bold mx-2 text-center"
+              disabled
             >
               Buy Ticket
-            </Link>
+            </button>
+            {login && (
+              <Link
+                className="btn shadow-none text-muted d-block d-md-none bg-white border-none mt-3 mt-sm-4 mt-md-2 mt-lg-2 font-weight-bold mx-2 text-center"
+                to="/profile"
+              >
+                Profile
+              </Link>
+            )}
           </Nav>
           <div className="col-12 text-center mt-5 mt-sm-5 mt-md-5 d-md-none d-lg-none d-xl-none">
             <p className="f-sm">© 2021 Tickitz. All Rights Reserved.</p>
           </div>
           <Form inline>
-            <select
+            {/* <select
               className=" d-none d-lg-block select-city font-weight-bold color2"
               name="select-city"
               id="city"
@@ -107,7 +119,7 @@ function CustomNavBar({ login, onChange }) {
               >
                 Lampung
               </option>
-            </select>
+            </select> */}
 
             <Button
               onClick={() => setState(!state)}
@@ -121,9 +133,10 @@ function CustomNavBar({ login, onChange }) {
             {state ? (
               <input
                 type="text"
-                onKeyUp={(inputMovieName) =>
-                  onChange(inputMovieName.target.value)
-                }
+                onKeyUp={(e) => {
+                  history.push("/movies");
+                  dispatch({ type: "SEARCH_MOVIE", payload: e.target.value });
+                }}
                 placeholder="Search"
                 className="d-none d-md-block"
               ></input>
@@ -141,11 +154,13 @@ function CustomNavBar({ login, onChange }) {
                   className="d-none d-md-block btn  bg-white mx-2 "
                   to="/profile"
                 >
-                  <img
-                    className="img-fluid img-thumbnails profil-user-navbar"
-                    src={dataLogin.profil_image}
-                    alt="profile"
-                  />
+                  {user && (
+                    <img
+                      className="img-fluid img-thumbnails profil-user-navbar"
+                      src={user.profil_image}
+                      alt="profile"
+                    />
+                  )}
                 </Link>
               </>
             ) : (

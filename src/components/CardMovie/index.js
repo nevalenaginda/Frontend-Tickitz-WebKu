@@ -1,5 +1,4 @@
 import { React, useState } from "react";
-import { NavItem } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function CardMovie({ movie, cardType }) {

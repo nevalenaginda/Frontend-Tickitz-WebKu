@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.3adead1a.chunk.css",
-    "main.js": "/static/js/main.4e446ed3.chunk.js",
-    "main.js.map": "/static/js/main.4e446ed3.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.e6416217.js",
-    "runtime-main.js.map": "/static/js/runtime-main.e6416217.js.map",
+    "main.css": "/static/css/main.666faf6a.chunk.css",
+    "main.js": "/static/js/main.62d4ec57.chunk.js",
+    "main.js.map": "/static/js/main.62d4ec57.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.8888a98f.js",
+    "runtime-main.js.map": "/static/js/runtime-main.8888a98f.js.map",
     "static/css/2.4c97ca4f.chunk.css": "/static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.55f29458.chunk.js": "/static/js/2.55f29458.chunk.js",
-    "static/js/2.55f29458.chunk.js.map": "/static/js/2.55f29458.chunk.js.map",
-    "static/js/3.0db19301.chunk.js": "/static/js/3.0db19301.chunk.js",
-    "static/js/3.0db19301.chunk.js.map": "/static/js/3.0db19301.chunk.js.map",
+    "static/js/2.cd28579c.chunk.js": "/static/js/2.cd28579c.chunk.js",
+    "static/js/2.cd28579c.chunk.js.map": "/static/js/2.cd28579c.chunk.js.map",
+    "static/js/3.7b95b93f.chunk.js": "/static/js/3.7b95b93f.chunk.js",
+    "static/js/3.7b95b93f.chunk.js.map": "/static/js/3.7b95b93f.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.4c97ca4f.chunk.css.map": "/static/css/2.4c97ca4f.chunk.css.map",
-    "static/css/main.3adead1a.chunk.css.map": "/static/css/main.3adead1a.chunk.css.map",
-    "static/js/2.55f29458.chunk.js.LICENSE.txt": "/static/js/2.55f29458.chunk.js.LICENSE.txt",
+    "static/css/main.666faf6a.chunk.css.map": "/static/css/main.666faf6a.chunk.css.map",
+    "static/js/2.cd28579c.chunk.js.LICENSE.txt": "/static/js/2.cd28579c.chunk.js.LICENSE.txt",
     "static/media/Chart.85b55138.png": "/static/media/Chart.85b55138.png",
     "static/media/StyleProfile.css": "/static/media/Kartu Users.da9d12bf.png",
     "static/media/style.css": "/static/media/Mulish-Regular.2f1b7468.ttf",
@@ -26,10 +26,10 @@
     "static/media/spiderman.8a65817a.png": "/static/media/spiderman.8a65817a.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.e6416217.js",
+    "static/js/runtime-main.8888a98f.js",
     "static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.55f29458.chunk.js",
-    "static/css/main.3adead1a.chunk.css",
-    "static/js/main.4e446ed3.chunk.js"
+    "static/js/2.cd28579c.chunk.js",
+    "static/css/main.666faf6a.chunk.css",
+    "static/js/main.62d4ec57.chunk.js"
   ]
 }

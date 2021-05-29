@@ -7,18 +7,14 @@ const configFormData = {
   },
 };
 
-export const insertMovie = (data) => (dispatch) => {
+export const getAllCinemas = () => (dispatch) => {
   return new Promise((resolve, reject) => {
     axios
-      .post(`${REACT_APP_API_TICKET}/movie`, data, configFormData)
+      .get(`${REACT_APP_API_TICKET}/cinema`, configFormData)
       .then((res) => {
-        const result = res.data.data;
-        // console.log(res);
-        dispatch({ type: "INSERT_MOVIE" });
         resolve(res);
       })
       .catch((err) => {
-        // console.log(err.message);
         reject(err);
       });
   });

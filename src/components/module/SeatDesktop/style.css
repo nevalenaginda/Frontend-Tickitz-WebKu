@@ -1,0 +1,67 @@
+.seat-wrapper .card-body {
+  padding: 100px;
+}
+
+.seat-wrapper .divider {
+  height: 8px;
+  background: #fcfdfe;
+  border-radius: 4px;
+}
+
+.seat-col {
+  display: flex;
+  align-items: center;
+}
+
+.seat-number-desktop {
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border-radius: 4px;
+  text-align: center;
+  margin: 0 1px;
+  display: inline-block;
+  outline: none;
+  border: none;
+  padding: 0;
+}
+.seat-desktop {
+  width: 22px;
+  height: 22px;
+  background: #d6d8e7;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 2px;
+  display: inline-block;
+  outline: none;
+  border: none;
+}
+
+.seat:focus {
+  outline: none;
+}
+.seat:disabled {
+  cursor: not-allowed;
+}
+
+.sold {
+  background: #6e7191;
+}
+
+.selected {
+  background: #5f2eea;
+}
+
+.love {
+  background: #f589d7;
+}
+
+.seating-key {
+  display: flex;
+  justify-content: space-around;
+}
+
+.seating-item {
+  display: flex;
+  align-items: center;
+}

@@ -1,13 +1,130 @@
-import React from "react";
-import alertCustom from "../../../components/Alerts";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useHistory, useLocation } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 import logoDesktop from "../../../assets/img/logo_desktop.png";
 import "./assets/StyleForgot.css";
 
 const Forgot = () => {
-  const activatenow = (data) => {
-    alertCustom("success", data);
+  const history = useHistory();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const Url = process.env.REACT_APP_API_TICKET;
+  const useQuery = () => new URLSearchParams(useLocation().search);
+  const query = useQuery();
+  let confirmEmail = query.get("email");
+  let confirmToken = query.get("token");
+
+  const handleReset = (event) => {
+    event.preventDefault();
+    if (password !== "") {
+      setLoading(true);
+      axios
+        .get(
+          `${Url}user/resetPassword/${confirmToken}/${confirmEmail}/${password}`
+        )
+        .then((res) => {
+          setLoading(false);
+          setEmail("");
+          setPassword("");
+
+          Swal.fire({
+            title: "Success!",
+            text: res.data.information.message,
+            icon: "success",
+            confirmButtonText: "Ok",
+            confirmButtonColor: "#7E98DF",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              history.push("/login");
+            } else {
+              history.push("/login");
+            }
+          });
+        })
+        .catch((err) => {
+          setLoading(false);
+          Swal.fire({
+            title: "Error!",
+            text: err.response.data.information.message,
+            icon: "error",
+            confirmButtonText: "Ok",
+            confirmButtonColor: "#7E98DF",
+          });
+        });
+    } else {
+      Swal.fire({
+        title: "Info!",
+        text: "Please fill new password",
+        icon: "info",
+        confirmButtonText: "Ok",
+        confirmButtonColor: "#7E98DF",
+      });
+    }
   };
+
+  const handleSend = (event) => {
+    const data = {
+      email,
+    };
+    event.preventDefault();
+    if (email !== "") {
+      setLoading(true);
+      axios
+        .post(`${Url}user/forgotPassword`, data)
+        .then((res) => {
+          setLoading(false);
+          setEmail("");
+          setPassword("");
+          console.log("ini responsenya", res);
+          Swal.fire({
+            title: "Success!",
+            text: res.data.information.message,
+            icon: "success",
+            confirmButtonText: "Ok",
+            confirmButtonColor: "#7E98DF",
+          });
+        })
+        .catch((err) => {
+          setLoading(false);
+          console.log("inierrornya", err);
+          Swal.fire({
+            title: "Error!",
+            text: err.response.data.information.message,
+            icon: "error",
+            confirmButtonText: "Ok",
+            confirmButtonColor: "#7E98DF",
+          });
+        });
+    } else {
+      Swal.fire({
+        title: "Info!",
+        text: "Please fill email",
+        icon: "info",
+        confirmButtonText: "Ok",
+        confirmButtonColor: "#7E98DF",
+      });
+    }
+  };
+
+  if (loading) {
+    Swal.fire({
+      icon: "info",
+      title: "Loading!",
+      text: "Please wait",
+      showConfirmButton: false,
+    });
+  }
+
+  useEffect(() => {
+    if (confirmToken !== null && confirmEmail !== null) {
+      setShowPassword(true);
+    }
+  }, [confirmEmail, confirmToken]);
+
   return (
     <div className="forgot">
       {/* web */}
@@ -62,37 +179,55 @@ const Forgot = () => {
                 <div className="row mt-5">
                   <div className="col-12">
                     <h4 className="c-black f-xlg f-weight mt-3">
-                      Fill your complete email
+                      {showPassword
+                        ? "Fill your new password"
+                        : "Fill your complete email"}
                     </h4>
                     <p className="f-sm color3">
-                      We'll send a link to your email shortly
+                      {showPassword
+                        ? "We'll help you reset password shortly"
+                        : "We'll send a link to your email shortly"}
                     </p>
                   </div>
                 </div>
-                <div className="row mt-5">
+                <form
+                  className="row mt-5"
+                  onSubmit={showPassword === false ? handleSend : handleReset}
+                >
                   <div className="col-12 form-group">
                     <label htmlFor="form-email" className="f-md">
-                      Email
+                      {showPassword ? "Password" : "Email"}
                     </label>
-                    <input
-                      id="form-email"
-                      type="email"
-                      placeholder="Write your email"
-                      required
-                      className="form-control h-100 w-100 box"
-                    />
+                    {showPassword ? (
+                      <input
+                        id="form-email"
+                        type="password"
+                        placeholder="Write your new password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        minLength="8"
+                        className="form-control h-100 w-100 box"
+                        required
+                      />
+                    ) : (
+                      <input
+                        id="form-email"
+                        type="email"
+                        placeholder="Write your email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        minLength="8"
+                        className="form-control h-100 w-100 box"
+                        required
+                      />
+                    )}
                   </div>
                   <div className="col-12 mt-5">
-                    <Link
-                      onClick={() => activatenow("Hai")}
-                      type="submit"
-                      className="btn btn-input w-100"
-                      to="/login"
-                    >
-                      Activate now
-                    </Link>
+                    <button type="submit" className="btn btn-input w-100">
+                      {showPassword ? "  Reset Now" : "Activate Now"}
+                    </button>
                   </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>
@@ -104,35 +239,54 @@ const Forgot = () => {
           <div className="row mt-5">
             <div className="col-12">
               <h3 className="color1 f-xl f-weight">Tickitz</h3>
-              <h3 className="f-weight mt-4">Forgot password</h3>
+              <h3 className="f-weight mt-4">
+                {showPassword ? "Reset Password" : "Forgot Password"}
+              </h3>
               <p className="f-sm color3">
-                We'll send a link to your email shortly
+                {showPassword
+                  ? "We'll help you reset password shortly"
+                  : "We'll send a link to your email shortly"}
               </p>
             </div>
           </div>
-          <div className="row mt-4">
+          <form
+            className="row mt-5"
+            onSubmit={showPassword === false ? handleSend : handleReset}
+          >
             <div className="col-12 form-group">
               <label htmlFor="form-email" className="f-md">
-                Email
+                {showPassword ? "Password" : "Email"}
               </label>
-              <input
-                id="form-email"
-                type="email"
-                placeholder="Write your email"
-                required
-                className="form-control h-100 w-100 box"
-              />
+              {showPassword ? (
+                <input
+                  id="form-email"
+                  type="password"
+                  placeholder="Write your new password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  minLength="8"
+                  className="form-control h-100 w-100 box"
+                  required
+                />
+              ) : (
+                <input
+                  id="form-email"
+                  type="email"
+                  placeholder="Write your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  minLength="8"
+                  className="form-control h-100 w-100 box"
+                  required
+                />
+              )}
             </div>
             <div className="col-12 mt-5">
-              <button
-                onClick={() => activatenow("Hai")}
-                type="submit"
-                className="btn btn-input w-100"
-              >
-                Activate now
+              <button type="submit" className="btn btn-input w-100">
+                {showPassword ? "  Reset Now" : "Activate Now"}
               </button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

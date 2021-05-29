@@ -1,0 +1,120 @@
+.divider {
+  height: 6px;
+  background: #9570fe;
+  border-radius: 3px;
+}
+
+.seat-wrapper .col-sm-12 {
+  display: flex;
+  justify-content: center;
+}
+
+.seat-wrapper .first {
+  padding: 0 5px;
+  border-left: 1px solid #00ba88;
+}
+
+.seat-wrapper .second {
+  padding: 0 5px;
+}
+
+.divider-bottom {
+  height: 1px;
+  margin: auto;
+  width: 100%;
+  margin-top: 0.5em;
+  border-top: 1px solid #ed2e7e;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.seat {
+  width: 14px;
+  height: 14px;
+  background: #d6d8e7;
+  border-radius: 2px;
+  cursor: pointer;
+  margin: 3px;
+  display: inline-block;
+  outline: none;
+  border: none;
+}
+
+.seat-col {
+  display: flex;
+  align-items: center;
+}
+
+.seat:focus {
+  outline: none;
+}
+.seat:disabled {
+  cursor: not-allowed;
+}
+
+.sold {
+  background: #6e7191;
+}
+
+.selected {
+  background: #5f2eea;
+}
+
+.love {
+  background: #f589d7;
+}
+
+.seating-key .col-6 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5em;
+}
+
+.seating-key span {
+  margin-left: 1em;
+}
+
+.seating-key .seat {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  border-radius: 4px;
+}
+
+.seat-list {
+  border-radius: 8px;
+}
+
+.select-seat {
+  border-radius: 16px;
+}
+
+.select-item {
+  border-radius: 8px;
+}
+
+.select-seat select {
+  width: 100%;
+  background: #eff0f7;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-size: 16px;
+  outline: none;
+  border: none;
+}
+
+.btn-add-seat {
+  padding: 12px;
+  width: 100%;
+  outline: none;
+  border: 1px solid #5f2eea;
+  border-radius: 4px;
+  color: #5f2eea;
+  font-size: 16px;
+  background-color: transparent;
+}
+
+.btn-add-seat:focus {
+  outline: none;
+}

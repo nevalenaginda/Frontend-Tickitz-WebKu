@@ -167,7 +167,8 @@ hr {
 }
 
 .cinema-card hr {
-  width: 366px;
+  width: 100%;
+  max-width: 366px;
   border: 0.5px solid #dedede;
 }
 
@@ -228,7 +229,7 @@ button.book-now:hover {
   border: 1px solid #5f2eea;
 }
 
-a.add-cart {
+span.add-cart {
   font-weight: 700;
   font-size: 14px;
   line-height: 24px;
@@ -237,7 +238,7 @@ a.add-cart {
   text-decoration: none;
 }
 
-a.add-cart:hover {
+span.add-cart:hover {
   color: #a68af1;
 }
 
@@ -286,4 +287,8 @@ a.add-cart:hover {
   border: 0.5px solid #dedede;
   color: #4e4b66;
   box-shadow: inherit;
+}
+
+.pointer {
+  cursor: pointer;
 }

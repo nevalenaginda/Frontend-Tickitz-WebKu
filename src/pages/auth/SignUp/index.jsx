@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useHistory } from "react-router-dom";
+import Swal from "sweetalert2";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import alertCustom from "../../../components/Alerts";
 import logoDesktop from "../../../assets/img/logo_desktop.png";
 import "./assets/StyleSignUp.css";
@@ -9,21 +10,47 @@ const SignUp = () => {
   const { REACT_APP_API_TICKET } = process.env;
   const history = useHistory();
   const [users, setUsers] = useState({ email: "", passowrd: "" });
+  const [checked, setChecked] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [loadingConfirm, setLoadingConfirm] = useState(false);
 
   const submitHandler = (e) => {
     e.preventDefault();
-
-    axios
-      .post(REACT_APP_API_TICKET + "user/register", users)
-      .then((res) => {
-        console.log(res);
-        alertCustom("success", res.data.information.message);
-        history.push("/login");
-      })
-      .catch((err) => {
-        console.log(err);
-        alertCustom("error", err.response.data.information.message);
+    if (checked) {
+      setLoading(true);
+      axios
+        .post(REACT_APP_API_TICKET + "user/register", users)
+        .then((res) => {
+          setLoading(false);
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: res.data.information.message,
+            confirmButtonText: `Ok`,
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+              history.push("/login");
+            } else if (result.isDenied) {
+              history.push("/login");
+            }
+          });
+        })
+        .catch((err) => {
+          setLoading(false);
+          Swal.fire({
+            icon: "error",
+            title: "Something Error.",
+            text: err.response.data.information.message,
+          });
+        });
+    } else {
+      Swal.fire({
+        icon: "info",
+        title: "Info",
+        text: "Please agree with the terms and conditions.",
       });
+    }
   };
 
   const btnGoogle = () => {
@@ -34,12 +61,61 @@ const SignUp = () => {
     alertCustom("info", "Facebook");
   };
 
+  const Url = process.env.REACT_APP_API_TICKET;
+  const useQuery = () => new URLSearchParams(useLocation().search);
+  const query = useQuery();
+  let confirmEmail = query.get("email");
+  let confirmToken = query.get("token");
+
+  if (loadingConfirm) {
+    Swal.fire({
+      icon: "info",
+      title: "Loading!",
+      text: "Please wait",
+      showConfirmButton: false,
+    });
+  }
+
+  useEffect(() => {
+    if (confirmToken !== null && confirmEmail !== null) {
+      setLoadingConfirm(true);
+      axios
+        .get(`${Url}user/activate/${confirmToken}/${confirmEmail}`)
+        .then((res) => {
+          setLoadingConfirm(false);
+          Swal.fire({
+            title: "Success!",
+            text: "Success activating account.",
+            icon: "success",
+            confirmButtonText: "Ok",
+            confirmButtonColor: "#7E98DF",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              history.push("/login");
+            } else {
+              history.push("/login");
+            }
+          });
+        })
+        .catch((err) => {
+          setLoadingConfirm(false);
+          Swal.fire({
+            title: "Error!",
+            text: "Failed activating account.",
+            icon: "error",
+            confirmButtonText: "Ok",
+            confirmButtonColor: "#7E98DF",
+          });
+        });
+    }
+  }, [Url, confirmEmail, confirmToken, history]);
+
   return (
     <div className="signup">
       {/* web */}
-      <div className="web d-sm-block d-none">
-        <div className="container-fluid">
-          <div className="row">
+      <div className="web d-sm-block d-none min-vh-100">
+        <div className="container-fluid ">
+          <div className="row min-vh-100">
             <div className="col-sm-7 banner">
               <div className="bg-banner "></div>
               <img
@@ -124,6 +200,8 @@ const SignUp = () => {
                         type="checkbox"
                         className="form-check-input"
                         id="exampleCheck1"
+                        defaultChecked={checked}
+                        onChange={(e) => setChecked(!checked)}
                       />
                       <label
                         className="form-check-label color2"
@@ -134,7 +212,7 @@ const SignUp = () => {
                     </div>
                     <div className="col-12 mt-5">
                       <button type="submit" className="btn btn-input w-100">
-                        Join for free
+                        {loading ? "Loading.." : "Join for free"}
                       </button>
                     </div>
                   </div>

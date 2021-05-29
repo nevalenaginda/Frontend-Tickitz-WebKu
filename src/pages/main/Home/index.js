@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import alertCustom from "../../../components/Alerts";
 import {
   getNowShowingMovies,
   getUpComingMovies,
@@ -168,7 +169,10 @@ export class Home extends Component {
                   <button
                     href="/"
                     className={`btn btn-month ${item.active && "main"}`}
-                    onClick={() => this.handleClickMonth(item.index)}
+                    onClick={() => {
+                      this.handleClickMonth(item.index);
+                      alertCustom("info", "Upcoming Feature.");
+                    }}
                   >
                     {item.name}
                   </button>
@@ -206,7 +210,10 @@ export class Home extends Component {
                   <div className="col-12 col-md-5">
                     <button
                       className="btn mt-3 btn-join-now w-100"
-                      type="submit"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        alertCustom("info", "Upcoming Feature.");
+                      }}
                     >
                       Join now
                     </button>

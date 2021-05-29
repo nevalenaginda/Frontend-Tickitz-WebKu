@@ -36,8 +36,8 @@ const Router = () => {
   }
 
   return (
-    <Switch>
-      <ScrollToTop>
+    <ScrollToTop>
+      <Switch>
         <AuthRoute path="/login" component={SignIn} type="guest" />
         <AuthRoute path="/register" component={SignUp} type="guest" />
         <AuthRoute path="/forgot-password" component={Forgot} type="guest" />
@@ -56,8 +56,8 @@ const Router = () => {
           component={UpdateMovie}
           type="adminOnly"
         />
-      </ScrollToTop>
-    </Switch>
+      </Switch>
+    </ScrollToTop>
   );
 };
 

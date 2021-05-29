@@ -130,7 +130,7 @@ function Detail() {
           .delete(Url + "movie/" + id, config)
           .then((res) => {
             setLoading(false);
-            history.push("/");
+            history.push("/movies");
             Swal.fire({
               icon: "success",
               text: res.data.information.message,

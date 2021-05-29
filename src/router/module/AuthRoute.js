@@ -1,5 +1,6 @@
 import { Redirect, Route } from "react-router";
 import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
 // import ScrollToTop from "../../components/base/scrollToTop";
 
 const AuthRoute = (props) => {
@@ -13,7 +14,14 @@ const AuthRoute = (props) => {
 
   if (type === "adminOnly" && role !== 0) return <Redirect to="/" />;
   else if (type === "guest" && isAuth) return <Redirect to="/" />;
-  else if (type === "private" && !isAuth) return <Redirect to="/login" />;
+  else if (type === "private" && !isAuth) {
+    Swal.fire({
+      icon: "info",
+      text: "Please login first.",
+      showConfirmButton: true,
+    });
+    return <Redirect to="/login" />;
+  }
   return <Route {...props} />;
 };
 

@@ -160,7 +160,7 @@ function Admin() {
         });
       });
     });
-  }, [dispatch, formSchedule]);
+  }, []);
 
   return (
     <div className="bg4">

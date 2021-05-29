@@ -22,7 +22,7 @@ function NowShowing() {
   const params = useQuery();
 
   const page = params.get("page") ? params.get("page") : 1;
-  const limit = params.get("limit") ? params.get("limit") : 5;
+  const limit = params.get("limit") ? params.get("limit") : 10;
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("movie_title");
   const [sortOrder, setSortOrder] = useState("ASC");
@@ -107,13 +107,13 @@ function NowShowing() {
               className="formControl f-md f-weight color2 "
             />
             <label
-              className="my-1 ml-3 mr-2 f-lmd f-weight color2"
+              className="my-1 ml-3 mr-2 f-md f-weight color2"
               htmlFor="sort"
             >
               Sort by
             </label>
             <select
-              className="custom-select my-1 mr-sm-2 f-lg f-weight color2"
+              className="custom-select my-1 mr-sm-2 f-md f-weight color2"
               id="sort"
               onChange={handleSortBy}
             >
@@ -124,7 +124,7 @@ function NowShowing() {
               ))}
             </select>
             <select
-              className="custom-select my-1 mr-sm-2"
+              className="custom-select f-md my-1 mr-sm-2"
               id="sort-order"
               onChange={handlesortOrder}
             >

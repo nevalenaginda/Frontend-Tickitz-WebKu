@@ -75,7 +75,7 @@ function AllFilm() {
               onChange={(e) => setSortBy(e.target.value)}
             >
               {optionsSortBy.map((option, index) => (
-                <option value={option.value} selected className="color2">
+                <option value={option.value} selected className="f-md color2">
                   {option.label}
                 </option>
               ))}
@@ -86,7 +86,7 @@ function AllFilm() {
               onChange={(e) => setSortOrder(e.target.value)}
             >
               {optionsSortOrder.map((option) => (
-                <option value={option.value} selected>
+                <option value={option.value} selected className="f-md">
                   {option.label}
                 </option>
               ))}

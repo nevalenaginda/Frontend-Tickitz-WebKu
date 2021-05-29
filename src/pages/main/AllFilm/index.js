@@ -43,7 +43,7 @@ function AllFilm() {
     window.scrollTo(0, 0);
     axios
       .get(
-        `${REACT_APP_API_TICKET}/movie?search-by=movie_title&item=${navBarSearch}&sort-by=${sortBy}&order=${sortOrder}&limit=10&page=${
+        `${REACT_APP_API_TICKET}movie?search-by=movie_title&item=${navBarSearch}&sort-by=${sortBy}&order=${sortOrder}&limit=10&page=${
           navBarSearch === "" ? currentPage : 1
         }`
       )

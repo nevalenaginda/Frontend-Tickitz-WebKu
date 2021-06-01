@@ -523,7 +523,7 @@ function Detail() {
                                     .match(/ago/)
                                     ? alertCustom(
                                         "info",
-                                        `This schedule has expired. Please choose another schedule.`
+                                        `This showtimes has expired. Please choose another showtimes.`
                                       )
                                     : handleSelectedTime(data.id_schedule);
                                 }}

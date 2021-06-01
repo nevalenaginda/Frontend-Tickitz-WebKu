@@ -42,6 +42,7 @@ function Payment() {
   const handleSelectPaymentMethod = (e, method) => {
     Swal.fire({
       icon: "success",
+      title: "Success",
       text: `You choose ${method} as payment method.`,
       timer: 1500,
       showConfirmButton: false,
@@ -136,6 +137,7 @@ function Payment() {
     } else {
       Swal.fire({
         icon: "info",
+        title: "Info",
         text: "Please select payment method first.",
         showConfirmButton: true,
       });

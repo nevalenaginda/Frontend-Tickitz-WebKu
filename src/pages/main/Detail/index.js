@@ -486,7 +486,7 @@ function Detail() {
             </div>
           </div>
         </div>
-        <div className="container">
+        <div className="container pb-5">
           <div className="row container-cinema justify-content-center mb-5">
             {schedule.map((data, idx) => {
               return (
@@ -515,9 +515,18 @@ function Detail() {
                           {data.playing_time.split(",").map((time) => {
                             return (
                               <div
-                                onClick={(e) =>
-                                  handleSelectedTime(data.id_schedule)
-                                }
+                                onClick={(e) => {
+                                  Moment(
+                                    `${data.playing_date} ${data.playing_time}`
+                                  )
+                                    .fromNow()
+                                    .match(/ago/)
+                                    ? alertCustom(
+                                        "info",
+                                        `This schedule has expired. Please choose another schedule.`
+                                      )
+                                    : handleSelectedTime(data.id_schedule);
+                                }}
                                 className={`nav-link f-md pointer ${
                                   data.id_schedule === selectedTime
                                     ? "color1 font-weight-bold"

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { useParams } from "react-router";
 import Moment from "moment";
 import Swal from "sweetalert2";
@@ -55,9 +55,12 @@ function Order() {
                 </div>
 
                 <div className="col col-md mt-1 mb-1 ">
-                  <button className="btn btn-primary mt-1 float-right bg5 font-weight-bold color1 border-white ">
+                  <Link
+                    to={"/movies"}
+                    className="btn btn-primary mt-1 float-right bg5 font-weight-bold color1 border-white "
+                  >
                     <span className="font5-rs">Change movie</span>
-                  </button>
+                  </Link>
                 </div>
               </div>
               <div className="col-12 mb-2 pt-1  font2-rs font-weight-bold">
@@ -192,7 +195,7 @@ function Order() {
           <div className="row">
             <div className="col-12 d-md-none mb-4">
               <button
-                onClick={(e) => this.handleCheckout(e)}
+                onClick={(e) => handleCheckout(e)}
                 className="btn btn-input w-100"
               >
                 Checkout now
